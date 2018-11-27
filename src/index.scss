@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+span {
+  display: inline-block;
+  &.answered {
+    margin-left: 20em;
+  }
+}
+
+i.icon-green {
+  color: #4fa79b;
+  position: absolute;
+  right: 0;
+  margin-right: .8rem;
+}
+
+.btn-large {
+  padding: 0% 2rem;
+  text-transform: capitalize;
+}
+
+a {
+  padding: 0px 10px;
+  word-wrap: normal;
+  display: inline-block;
+}
+
+/* Ref: https://stackoverflow.com/questions/49757521/materialize-css-radio-buttons-not-visible */
+[type="radio"] {
+  &:not(:checked), &:checked {
+    position: relative;
+    opacity: 1;
+  }
+}
+
+[type="checkbox"] {
+  &:not(:checked), &:checked {
+    position: relative;
+    opacity: 1;
+  }
+}
+
+/* Materialize CSS issues */
+
+.radio-label {
+  font-size: 1rem;
+  margin-left: 5px;
+  color: #323238;
+  > [type="radio"] {
+    margin-top: 1.9rem;
+    margin-left: 1.8rem;
+    margin-bottom: 2.8rem;
+    margin-right: 0.8rem;
+  }
+}
+
+.rc-calendar-date-input-wrap {
+  display: none;
+}
+
+.checkbox-div {
+  margin-left: 2rem;
+}
+
+.label-checkbox {
+  font-size: 1rem;
+  color: #2b3745;
+}
+
+input {
+  margin-left: 1rem;
+}

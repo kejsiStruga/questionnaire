@@ -1,25 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Questions from './questions';
+import Summary from './summary';
+import questions from './resources/questions.json'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      questions: questions,
+      next: '',
+      answered: [],
+      current: 0,
+      currentArr: [questions[0]],
+      finished: false
+    }
+    localStorage.clear();
+    this.handler = this.handler.bind(this);
+  }
+
+  handler () {
+      if(this.state.currentArr.length < this.state.questions.length) {
+        this.setState({
+          currentArr: [...this.state.currentArr, this.state.currentArr.length],
+          next: this.state.questions[this.state.currentArr.length]
+        });
+      } else {
+        this.setState({
+          finished: true
+        })
+      }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="questionnaire-app container">
+        <h1 className="center blue-text">Questionnaire</h1>
+        {
+          !this.state.finished ? (
+              <Questions 
+                questions = {this.state.questions}
+                currentArr={this.state.currentArr}
+                next={this.state.questions[this.state.currentArr.length]}
+                handler={this.handler}/>
+          ) : (
+            <Summary />
+          )
+        }
       </div>
     );
   }
